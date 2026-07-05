@@ -1,6 +1,4 @@
 import streamlit as st
-from dns.e164 import query
-
 import helper
 import pickle
 
@@ -14,8 +12,6 @@ q2 = st.text_input('Enter question 2')
 if st.button('Find'):
     query = helper.query_point_creator(q1, q2)
     result = model.predict(query)[0]
-    print(model.predict(query))
-    print(model.predict_proba(query))
 
     if result:
         st.header('Duplicate')
